@@ -3,8 +3,8 @@ const fs = require("fs")
 const path = require("path")
 var cors = require("cors")
 var bodyParser = require("body-parser")
-const tokenizer = require("./utils/tokenizer")
-const parser = require("./utils/parser")
+const tokenizer = require("./compiler/tokenizer")
+const parser = require("./compiler/parser")
 
 const app = express()
 const port = 3030
