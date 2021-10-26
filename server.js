@@ -5,11 +5,13 @@ var cors = require("cors")
 var bodyParser = require("body-parser")
 const tokenizer = require("./compiler/tokenizer")
 const parser = require("./compiler/parser")
+const cors = require("cors")
 
 const app = express()
 const port = process.env.PORT || 3030
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors())
 
 const iconFiles = {
   ".html": "mdi-language-html5",
