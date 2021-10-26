@@ -42,6 +42,6 @@ Start the server
 ## Authors
 
 - [@matheus-catalan](https://www.github.com/matheus-catalan)
-- [Daniel Maffi]()
+- [@DanielMaffi](https://github.com/DanielMaffi)
 - [Leonardo Isaque]()
 - [Mauricio Picolini]()
