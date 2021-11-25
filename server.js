@@ -5,7 +5,6 @@ var cors = require("cors")
 var bodyParser = require("body-parser")
 const tokenizer = require("./compiler/tokenizer")
 const parser = require("./compiler/parser")
-const cors = require("cors")
 
 const app = express()
 const port = process.env.PORT || 3030
@@ -73,12 +72,23 @@ app.post("/folder", (req, res) => {
   res.send().status(200)
 })
 
-app.post("/compiler", (req, res) => {
+app.post("/compiler/lexical", (req, res) => {
+  const cpp = req.body.content
+  const tokens = tokenizer(cpp)
+
+  // console.log(tokens)
+
+  res.send({ tokens: tokens }).status(200)
+})
+
+app.post("/compiler/sintatic", (req, res) => {
   const cpp = req.body.content
   const tokens = tokenizer(cpp)
   const parsed = parser(tokens)
 
-  res.send({ tokens: tokens, parsed: parsed }).status(200)
+  console.log(parsed)
+
+  res.send({ parsed: parsed }).status(200)
 })
 
 app.post("/file", (req, res) => {

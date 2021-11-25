@@ -7,10 +7,10 @@ var NUMBERS = /[0-9]/
 function tokenizer(input) {
   var current = 0
   var tokens = []
+  let error = false
 
   while (current < input.length) {
     var char = input[current]
-    console.log(`current -> ${current}`)
 
     if (char === "=") {
       tokens.push({
@@ -335,19 +335,14 @@ function tokenizer(input) {
       continue
     }
 
-    /*whatever else, we don't know jack! */
-    throw new TypeError("Type Error! Unrecognized Character: " + char)
+    error = true
+    break
   }
 
-  function Tokens(value) {
-    this.value = value
+  if (error) {
+    return "Caracter não reconhecido: " + char
   }
 
-  var logger = {}
-
-  tokens.forEach((token) => {
-    logger[token.type] = new Tokens(token.value)
-  })
   return tokens
 }
 

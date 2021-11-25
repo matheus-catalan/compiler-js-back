@@ -31,7 +31,6 @@ int main()
 {
   Tree tree(4);
   tree.addNode(0, 1);
-
   tree.addNode(2, 3);
   tree.addNode(1, 2);
   tree.addNode(2, 0);
